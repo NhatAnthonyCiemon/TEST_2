@@ -1,9 +1,11 @@
-var http = require('http');
-var server =http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end('Hello World!');
-    })
-server.listen(8080,"localHost",function(){
-    console.log('Server is running at http://localhost:8080/');
-    }
-);
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+  res.send('Hello from Vercel!');
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
